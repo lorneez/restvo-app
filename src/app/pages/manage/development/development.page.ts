@@ -77,7 +77,7 @@ export class DevelopmentPage {
     if (!this.reachedEnd) {
       const moments: any = await this.momentService.loadSampleActivities(null);
       this.ionSpinner = false;
-      // temp overide the paging function: i.e. only load page 1
+      // temp-recovery overide the paging function: i.e. only load page 1
         this.reachedEnd = true;
         event.target.disabled = true;
       if (!moments.length) {

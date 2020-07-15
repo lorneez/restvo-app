@@ -75,7 +75,7 @@ export class PicknotePopoverPage implements OnInit {
     if (!this.reachedEnd) {
       const relationships_notes: any = await this.momentService.loadNotes(this.relationshipId, this.calendarId);
       this.ionSpinner = false;
-      // temp overide the paging function: i.e. only load page 1
+      // temp-recovery overide the paging function: i.e. only load page 1
       this.reachedEnd = true;
       if (!relationships_notes.length) {
         this.reachedEnd = true;

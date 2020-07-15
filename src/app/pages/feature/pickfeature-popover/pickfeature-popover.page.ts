@@ -85,7 +85,7 @@ export class PickfeaturePopoverPage implements OnInit {
         if (!this.reachedEnd) {
             const samples: any = await this.momentService.loadSampleActivities(this.categoryId);
             this.ionSpinner = false;
-            // temp overide the paging function: i.e. only load page 1
+            // temp-recovery overide the paging function: i.e. only load page 1
             this.reachedEnd = true;
             if (!samples.length) {
                 this.reachedEnd = true;

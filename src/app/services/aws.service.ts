@@ -252,7 +252,7 @@ export class Aws {
         const imageSource: any = JSON.parse(JSON.stringify(origin));
         switch (typeof imageSource) {
             case 'object': // imageSource is an array. Typical use case is to clean up unlinked Media URL from DO
-                //remove valid media from the tempUploadedMedia array. The temp array will be used in the final clean up process
+                //remove valid media from the tempUploadedMedia array. The temp-recovery array will be used in the final clean up process
                 for (let i = this.sessionAssets.length - 1; i >= 0; i--) {
                     if (this.sessionAssets[i] && this.sessionAssets[i].length) {
                         const index = this.tempUploadedMedia.indexOf(this.sessionAssets[i]);

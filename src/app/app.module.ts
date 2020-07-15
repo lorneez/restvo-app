@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, ErrorHandler } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouteReuseStrategy } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
@@ -17,10 +17,10 @@ import {EmailComposer} from '@ionic-native/email-composer/ngx';
 import {CallNumber} from '@ionic-native/call-number/ngx';
 import {Contacts} from '@ionic-native/contacts/ngx';
 import {AppVersion} from '@ionic-native/app-version/ngx';
-import {Geolocation} from "@ionic-native/geolocation/ngx";
-import {NativeGeocoder} from "@ionic-native/native-geocoder/ngx";
-import {SpeechRecognition} from "@ionic-native/speech-recognition/ngx";
-import {Calendar} from "@ionic-native/calendar/ngx";
+import {Geolocation} from '@ionic-native/geolocation/ngx';
+import {NativeGeocoder} from '@ionic-native/native-geocoder/ngx';
+import {SpeechRecognition} from '@ionic-native/speech-recognition/ngx';
+import {Calendar} from '@ionic-native/calendar/ngx';
 import {ScreenOrientation} from '@ionic-native/screen-orientation/ngx';
 import { NgxStripeModule } from 'ngx-stripe';
 import { ServiceWorkerModule } from '@angular/service-worker';
@@ -29,13 +29,14 @@ import { environment } from '../environments/environment';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 
-import {ApplicationPipesModule} from "./pipes/application-pipes";
+import {ApplicationPipesModule} from './pipes/application-pipes';
 import {IonicGestureConfig} from '../utils/IonicGestureConfig';
 import { HAMMER_GESTURE_CONFIG } from '@angular/platform-browser';
-import {RegisterPageModule} from "./pages/user/register/register.module";
-import {ShowrecipientinfoModule} from "./pages/connect/showrecipientinfo/showrecipientinfo.module";
-import {ShowfeaturePageModule} from "./pages/feature/showfeature/showfeature.module";
-import {PickpeoplePopoverPageModule} from "./pages/feature/pickpeople-popover/pickpeople-popover.module";
+import {RegisterPageModule} from './pages/user/register/register.module';
+import {ShowrecipientinfoModule} from './pages/connect/showrecipientinfo/showrecipientinfo.module';
+import {ShowfeaturePageModule} from './pages/feature/showfeature/showfeature.module';
+import {PickpeoplePopoverPageModule} from './pages/feature/pickpeople-popover/pickpeople-popover.module';
+import { ErrorService } from './services/systemlog.service';
 
 @NgModule({
   declarations: [
@@ -64,6 +65,7 @@ import {PickpeoplePopoverPageModule} from "./pages/feature/pickpeople-popover/pi
   providers: [
       { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
       { provide: HAMMER_GESTURE_CONFIG, useClass: IonicGestureConfig },
+      {  provide: ErrorHandler, useClass: ErrorService },
       Push,
       Badge,
       CallNumber,
